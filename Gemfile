@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'simple_form', '~> 4.1'
-
+gem 'html2haml'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -55,7 +55,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda'
   gem 'shoulda-matchers'
 end
 
