@@ -1,0 +1,2 @@
+class Alpaca < ApplicationRecord
+end
