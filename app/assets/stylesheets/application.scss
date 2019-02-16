@@ -1,4 +1,175 @@
 @import 'bootstrap';
 
+.navbar-brand {
+  font-size: 20px;
+  font-family: inherit;
+  font-family: inherit;
+}
+
+.navbrand-logo-image {
+  height: 40px;
+  position: relative;
+  top: 0px;
+}
+
+.alpaca-image {
+  height: 40vh;
+  width: 40vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.half-screen {
+  float: right;
+  width: 50%;
+
+}
+
+.form-group-image{
+  float: right
+
+}
+
+.btn_margin {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+footer.footer {
+  background-color: lightgray;
+  border-top: 1px darkblue;
+  bottom: 0;
+  max-height: 130px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  width: 100%;
+
+
+  ul#footer_nav {
+    margin: 0;
+    padding: 0;
+    display: block;
+
+    li {
+      display: inline;
+      margin-right: 2em;
+
+      &.separator {
+        margin-left: -.35em;
+        margin-right: 4em;
+        opacity: 0.6;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+
+  ul#footer_nav-center {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+
+    li {
+      display: inline;
+      margin-right: 0em;
+
+      &.separator {
+        margin-left: 0em;
+        margin-right: 0em;
+        opacity: 0.6;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    a {
+      color: white;
+    }
+  }
+}
+
+.login-form {
+  width: 400px;
+  height: 30vh;
+  margin: 30px auto;
+
+}
+
+.frame-form {
+  width: 70vw;
+  margin: 15px auto;
+}
+
+.frame-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+}
+
+.login-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+
+.form-group {
+  margin: 10px 0;
+  font-size: 15px;
+  text-align: left;
+  line-height: 24px;
+}
+
+.login-form h2 {
+  margin: 0 0 15px;
+}
+
+.login-form .hint-text {
+  color: #777;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.form-control, .btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.or-seperator {
+  margin: 20px 0 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.or-seperator i {
+  padding: 0 10px;
+  background: #f7f7f7;
+  position: relative;
+  top: -11px;
+  z-index: 1;
+}
+
+
 
 

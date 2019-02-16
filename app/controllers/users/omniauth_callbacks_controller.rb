@@ -19,5 +19,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     flash[:alert] = 'Authentication failed.'
     redirect_to root_path
   end
-
 end

@@ -1,14 +1,30 @@
-%h2 Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email,
-      required: false,
-      autofocus: true,
-      input_html: { autocomplete: "email" }
-    = f.input :password,
-      required: false,
-      input_html: { autocomplete: "current-password" }
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
-= render "devise/shared/links"
+.row
+  .col-md-6
+    .login-form
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        %h2.text-center Sign in
+        .form-inputs
+          = f.input :email,
+            required: false,
+            autofocus: true,
+            input_html: {autocomplete: "email"}
+          = f.input :password,
+            required: false,
+            input_html: {autocomplete: "current-password"}
+          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        .form-group
+          .form-actions
+            = f.button :submit, "Log in", class: 'btn btn-success btn-block login-btn'
+            .or-seperator
+              %i or
+          .form-group
+            - if devise_mapping.omniauthable?
+              - resource_class.omniauth_providers.each do |provider|
+                = link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-#{"info"} btn-block" do
+                  %i{:class => "fa fa-#{provider}"}
+                  Sign in with
+                  %b= provider.to_s.camelize
+                  %br
+        = render 'links_sign_in'
+  .col-md-4
+    = image_tag 'alpaca_logo.png'

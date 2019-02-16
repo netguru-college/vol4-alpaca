@@ -65,3 +65,4 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
   navbar:
     alpacas: "alpacas"
+    alpaka_path: "Show Alpacas"

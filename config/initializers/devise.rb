@@ -62,12 +62,10 @@ Devise.setup do |config|
   require 'omniauth-github'
 
   if Rails.env.production?
-    config.omniauth :github, Rails.application.credentials.dig(:production, :github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret), :scope => 'user:email'
+    config.omniauth :github, Rails.application.credentials.dig(:production, :github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret), scope: 'user:email'
   else
-    config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret), :scope => 'user:email'
+    config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret), scope: 'user:email'
   end
-
-
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
