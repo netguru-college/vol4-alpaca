@@ -26,9 +26,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.3.1'
+gem 'html2haml'
 gem 'jquery-rails'
 gem 'simple_form', '~> 4.1'
-gem 'html2haml'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -48,17 +48,15 @@ gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
-
 end
 
 group :test do
   gem 'shoulda-matchers'
 end
-
-
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
