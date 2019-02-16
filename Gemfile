@@ -24,11 +24,13 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
+gem 'devise-bootstrap-views'
+gem 'haml-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'html2haml'
 gem 'jquery-rails'
 gem 'simple_form', '~> 4.1'
+gem 'omniauth-github', '~> 1.1.2' # for Github Authentications
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
