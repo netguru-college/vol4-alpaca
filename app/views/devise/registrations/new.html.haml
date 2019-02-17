@@ -5,6 +5,10 @@
         = f.error_notification
         %h2.text-center Sign up
         .form-inputs
+          = f.input :name,
+            required: false,
+            autofocus: true,
+            input_html: {autocomplete: "name"}
           = f.input :email,
             required: true,
             autofocus: true,
