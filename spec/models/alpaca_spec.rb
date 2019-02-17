@@ -6,7 +6,8 @@ RSpec.describe Alpaca, type: :model do
   it { should validate_presence_of :name }
   it { should validate_presence_of :quote }
   it { should validate_presence_of :picture_url }
-  it { should have_many :skills }
+  # This should be uncommented, when Skills model will be created.
+  # it { should have_many :skills }
 
   # Not sure, if those tests are necessary...
   it 'is not expected to have blank name' do
