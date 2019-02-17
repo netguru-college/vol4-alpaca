@@ -1,0 +1,36 @@
+.row
+  .col-md-6
+    .login-form
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        %h2.text-center Sign up
+        .form-inputs
+          = f.input :name,
+            required: false,
+            autofocus: true,
+            input_html: {autocomplete: "name"}
+          = f.input :email,
+            required: true,
+            autofocus: true,
+            input_html: {autocomplete: "email"}
+          = f.input :password,
+            required: true,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: {autocomplete: "new-password"}
+          = f.input :password_confirmation,
+            required: true,
+            input_html: {autocomplete: "new-password"}
+        .form-group
+          .form-actions
+            = f.button :submit, "Sign up", class: 'btn btn-success btn-block login-btn'
+          .form-group
+            - if devise_mapping.omniauthable?
+              - resource_class.omniauth_providers.each do |provider|
+                = link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-#{"info"} btn-block" do
+                  %i{:class => "fa fa-#{provider}"}
+                  Sign in with
+                  %b= provider.to_s.camelize
+                  %br/
+        = render 'links_sign_up'
+  .col-md-6
+    = image_tag 'alpacas_background.jpg'

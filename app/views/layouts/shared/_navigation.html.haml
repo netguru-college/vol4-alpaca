@@ -1,0 +1,25 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
+  .container
+    %a.navbar-brand{ href: root_path }
+      = image_tag 'alpaca_logo.png', class: 'navbrand-logo-image'
+      = link_to "Alpaca Game", root_path, class: 'navbar-brand'
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav.mr-auto
+        %li.nav-item
+          = link_to t('navbar.alpaka_path'), root_path
+      %ul.nav.navbar-nav.ml-auto
+        - if user_signed_in?
+          .dropdown.show
+            %a#dropdown-menu-link.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = current_user.email
+            .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdown-menu-link"}
+              = link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
+        - else
+          %li.nav-item.btn_margin
+            = link_to t('navbar.signin'), new_user_session_path, class: 'nav-link', class: 'btn btn-outline-warning'
+          %li.nav-item.btn_margin
+            = link_to t('navbar.signup'), new_user_registration_path, class: 'nav-link', class: 'btn btn-outline-warning'
+
+
+
+

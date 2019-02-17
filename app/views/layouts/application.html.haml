@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Alpakiada
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon"
+    %header
+      = render 'layouts/shared/navigation'
+      .container-fluid
+        .row
+          .col-md-12
+    %main{:role => "main"}
+      = render 'layouts/shared/messages'
+      .container
+        .row
+          .col-xs-10.col-xs-offset-1
+            = yield
+    = render 'layouts/shared/footer'
