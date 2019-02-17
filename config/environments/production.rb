@@ -93,4 +93,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # API key and engine ID for Google Custom Search API
+  config.google_custom_search_api_key = 'AIzaSyB1HMVbdx3Sgw4PMl-t2OfF_wArSMk64ec'
+  config.google_custom_search_engine_id = '001552841454601811497:6drfokersza'
 end
