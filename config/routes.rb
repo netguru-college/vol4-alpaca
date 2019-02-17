@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get '/auth/failure' => 'omniauth_callbacks#failure'
   root 'home#welcome'
+  get 'dashboard', to: "home#dashboard", as: :dashboard
+
 end

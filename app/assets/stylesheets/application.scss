@@ -39,6 +39,20 @@
   display: inline-block;
 }
 
+.jumbotron {
+  margin-top: 20px;
+  background-image: url('welcome.jpg');
+  background-size: cover;
+  p {
+    font-weight: bold;
+  }
+}
+
+.card {
+  margin: 50px;
+}
+
+
 footer.footer {
   background-color: lightgray;
   border-top: 1px darkblue;
@@ -169,7 +183,3 @@ footer.footer {
   top: -11px;
   z-index: 1;
 }
-
-
-
-
