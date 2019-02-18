@@ -16,4 +16,4 @@
 - elsif current_user.id == @alpaca.last_owner && @alpaca.for_sale == true
   = link_to 'Cancel the sale', sell_alpaca_path, method: :put, class: 'btn btn-secondary btn-lg'
 - else
-  = "Buy alpaca"
+  = link_to 'Buy Alpaca', change_owner_ownership_path, method: :put, class: 'btn btn-info btn-lg'
