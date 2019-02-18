@@ -1,13 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Alpaca, type: :model do
-  subject { described_class.create }
+  subject {described_class.create}
 
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :quote }
-  it { should validate_presence_of :picture_url }
+
+  it {should validate_presence_of :name}
+  it {should validate_presence_of :quote}
+  it {should validate_presence_of :picture_url}
   # This should be uncommented, when Skills model will be created.
-  # it { should have_many :skills }
+  #it {should have_many(:skills).through(:alpaca_skills)
+  describe 'associations' do
+    it { should have_many :ownerships }
+    it { should have_many(:users).through(:ownerships) }
+   # it { should have_many(:users).through(:ownerships) }
+  end
+
+
 
   # Not sure, if those tests are necessary...
   it 'is not expected to have blank name' do
