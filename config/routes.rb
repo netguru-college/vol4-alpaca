@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   root 'home#welcome'
   get 'dashboard', to: "home#dashboard", as: :dashboard
 
-
+  resources :alpacas
 
 end

@@ -1,0 +1,14 @@
+<p> My Alpacas </p>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @alpacas.each do |alpaca| %>
+    <tr>
+      <td><%= alpaca.name %></td>
+      <td><%= link_to 'Show alpaca', alpaca_path(alpaca) %></td>
+    </tr>
+  <% end %>
+</table>
