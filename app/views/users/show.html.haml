@@ -1,0 +1,13 @@
+.row
+  .col-12
+    %h1 My profile
+  .col-4
+    %img.img-thumbnail{:alt => "Avatar", :src => "https://previews.123rf.com/images/philllbg/philllbg1611/philllbg161100052/69341136-colorful-vector-illustration-of-a-cartoon-farmer-or-redneck.jpg"}
+  .col-8
+    %p Name: #{@user.name}
+    %p e-mail: #{@user.email}
+    %p Alpacas owned: #{@user.alpacas.count}
+    %p Events won: not implemented
+    %p
+    %p
+      =link_to("Edit profile", user_registration_path(current_user))
