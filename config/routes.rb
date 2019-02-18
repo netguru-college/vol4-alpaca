@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :users
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
   get '/auth/failure' => 'omniauth_callbacks#failure'
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'dashboard', to: "home#dashboard", as: :dashboard
 
   resources :alpacas
-
+  resources :users
 end

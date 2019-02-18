@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 2019_02_18_102537) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "skills", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ownerships", force: :cascade do |t|
     t.bigint "alpaca_id"
     t.bigint "user_id"
@@ -49,6 +42,13 @@ ActiveRecord::Schema.define(version: 2019_02_18_102537) do
     t.datetime "updated_at", null: false
     t.index ["alpaca_id"], name: "index_ownerships_on_alpaca_id"
     t.index ["user_id"], name: "index_ownerships_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2019_02_18_102537) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 
   add_foreign_key "alpaca_skills", "alpacas"
   add_foreign_key "alpaca_skills", "skills"
