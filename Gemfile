@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'omniauth-github', '~> 1.1.2' # for Github Authentications
 gem 'simple_form', '~> 4.1'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
