@@ -16,6 +16,10 @@ class Alpaca < ApplicationRecord
   # Doesn't really work, as currently models aren't properly integrated
   has_many :skills, through: :alpaca_skills
 
+  has_many :ownerships
+  has_many :users, through: :ownerships
+
+
   private
 
   # Coinflip - choose a number between 0 and 1 and round it to the nearest integer.

@@ -6,6 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
+  has_many :ownerships
+  has_many :alpacas, through: :ownerships
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.github_data'] && session['devise.github_data']['extra']['raw_info']
