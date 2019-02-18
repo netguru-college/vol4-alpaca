@@ -1,4 +1,5 @@
 require 'faker'
+require './app/services/google_custom_search_api_service'
 
 module AlpacaService
   class << self
@@ -6,10 +7,12 @@ module AlpacaService
         gender = randomize_gender
         name = randomize_name(gender)
         quote = randomize_quote
+        picture_url = randomize_picture
+
         Alpaca.new(name:        name,
                    gender:      gender,
                    quote:       quote,
-                   picture_url: Faker::Internet.url)
+                   picture_url: picture_url)
       end
 
       private
@@ -39,4 +42,18 @@ module AlpacaService
         return Faker::Quote.matz             if random == 2
         return Faker::Quote.singular_siegler if random == 3
       end
+
+      def randomize_picture
+        response = GoogleCustomSearchApiService::pictures
+        if response.nil?
+          # If response is nil (HTTP error), return nil, so the model validation won't pass
+          return nil
+        else
+          # Our response is hash. We access its key, named "items", which value is an array of hashes with found links
+          items = response['items']
+          # Take random element from items array and access "link" key, which contains value of random picture URL
+          items.sample['link']
+        end
+      end
+    end
 end
