@@ -14,4 +14,9 @@ Rails.logger.info 'Seeds crating started'
   user.save!
 end
 
+5.times do
+  alpaca = Alpaca.new
+  alpaca.save!
+end
+
 Rails.logger.info 'Seeds crating finished'
