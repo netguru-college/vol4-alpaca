@@ -18,8 +18,14 @@ class AlpacasController < ApplicationController
 
   def sell
     @alpaca = Alpaca.find(params[:id])
-    @alpaca.update_attributes(for_sale: true)
-    redirect_to market_place_path
+    if @alpaca.for_sale == false
+      @alpaca.update_attributes(for_sale: true)
+      redirect_to alpacas_path
+    else
+      @alpaca.update_attributes(for_sale: false)
+      redirect_to market_place_path
+    end
+
   end
 
   def buy
