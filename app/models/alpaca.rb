@@ -22,15 +22,14 @@ class Alpaca < ApplicationRecord
 
   private
 
-  # Coinflip - choose a number between 0 and 1 and round it to the nearest integer.
-  # Return 0 or 1, where 0 is woman, 1 is man.
+  # Coinflip
   def randomize_gender
-    self.gender = rand.round
+    self.gender = [true, false].sample
   end
 
   def randomize_name
     # If it's male, give alpaca male first name, otherwise female name
-    male? ? self.name = Faker::Name.male_first_name : self.name = Faker::Name.female_first_name
+    self.name = male? ? Faker::Name.male_first_name : Faker::Name.female_first_name
     # Coinflip - decide, if alpaca should have middle name or not
     self.name += ' ' + Faker::Name.middle_name if rand.round == 1
     # Always add last name
