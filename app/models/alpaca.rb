@@ -13,7 +13,7 @@ class Alpaca < ApplicationRecord
             :quote,
             :picture_url, presence: true
 
-  # Doesn't really work, as currently models aren't properly integrated
+  has_many :alpaca_skills
   has_many :skills, through: :alpaca_skills
 
   private
