@@ -10,16 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_090743) do
+ActiveRecord::Schema.define(version: 2019_02_18_102537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alpaca_skills", force: :cascade do |t|
+    t.integer "level", null: false
+    t.bigint "alpaca_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpaca_id", "skill_id"], name: "index_alpaca_skills_on_alpaca_id_and_skill_id", unique: true
+    t.index ["alpaca_id"], name: "index_alpaca_skills_on_alpaca_id"
+    t.index ["skill_id"], name: "index_alpaca_skills_on_skill_id"
+  end
 
   create_table "alpacas", force: :cascade do |t|
     t.string "name", null: false
     t.string "quote", null: false
     t.binary "gender"
     t.string "picture_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +66,9 @@ ActiveRecord::Schema.define(version: 2019_02_18_090743) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
+  add_foreign_key "alpaca_skills", "alpacas"
+  add_foreign_key "alpaca_skills", "skills"
   add_foreign_key "ownerships", "alpacas"
   add_foreign_key "ownerships", "users"
 end
