@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'omniauth_callbacks#failure'
   root 'home#welcome'
   get 'dashboard', to: "home#dashboard", as: :dashboard
+  get 'market_place', to: "alpacas#market_place", as: :market_place
+
 
   resources :alpacas
   resources :users
+
+  resources :alpacas do
+    put :sell, on: :member
+  end
 end

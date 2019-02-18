@@ -20,6 +20,8 @@ class Alpaca < ApplicationRecord
   has_many :users, through: :ownerships
 
 
+  
+
   private
 
   # Coinflip - choose a number between 0 and 1 and round it to the nearest integer.
