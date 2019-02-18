@@ -3,5 +3,7 @@
   %p.lead In this amazing browser game, you can keep your own Alpacas, train them, and compete with other players in sport events for alpacas.
   %hr.my-4/
   %p Are you ready for outstanding Alpaca adventure?
-  %a.btn.btn-primary.btn-lg{:href => "dashboard", :role => "button"} Ohhhh yes!!!
-  %a.btn.btn-primary.btn-lg{:href => destroy_user_session_path, method: :delete, :role => "button"}Umm... Not really...
+  = link_to 'Ohhhh yes!!!', dashboard_path, class: 'btn btn-primary btn-lg'
+  = link_to 'Umm... Not really...', destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-lg'
+
+
