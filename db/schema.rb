@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_18_102537) do
+=======
+ActiveRecord::Schema.define(version: 2019_02_18_090743) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +39,21 @@ ActiveRecord::Schema.define(version: 2019_02_18_102537) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "skills", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+  create_table "ownerships", force: :cascade do |t|
+    t.bigint "alpaca_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alpaca_id"], name: "index_ownerships_on_alpaca_id"
+    t.index ["user_id"], name: "index_ownerships_on_user_id"
+>>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,6 +71,11 @@ ActiveRecord::Schema.define(version: 2019_02_18_102537) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "alpaca_skills", "alpacas"
   add_foreign_key "alpaca_skills", "skills"
+=======
+  add_foreign_key "ownerships", "alpacas"
+  add_foreign_key "ownerships", "users"
+>>>>>>> master
 end
