@@ -10,6 +10,8 @@ RSpec.describe Alpaca, type: :model do
   # This should be uncommented, when Skills model will be created.
   #it {should have_many(:skills).through(:alpaca_skills)
   describe 'associations' do
+    it { should have_many :alpaca_skills }
+    it { should have_many(:skills).through :alpaca_skills }
     it { should have_many :ownerships }
     it { should have_many(:users).through(:ownerships) }
    # it { should have_many(:users).through(:ownerships) }
