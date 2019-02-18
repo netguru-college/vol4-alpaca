@@ -14,4 +14,14 @@ Rails.logger.info 'Seeds crating started'
   user.save!
 end
 
+6.times do
+ alpaca = Alpaca.new(
+   name: Faker::Name.unique.name,
+   quote: Faker::Quote,
+   gender: rand.round,
+   picture_url: Faker::Internet.url
+ )
+ alpaca.save!
+end
+
 Rails.logger.info 'Seeds crating finished'
