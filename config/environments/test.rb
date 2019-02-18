@@ -47,6 +47,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # API key and engine ID for Google Custom Search API
-  config.google_custom_search_api_key = 'AIzaSyB1HMVbdx3Sgw4PMl-t2OfF_wArSMk64ec'
-  config.google_custom_search_engine_id = '001552841454601811497:6drfokersza'
+  config.google_custom_search_api_key = Rails.application.credentials.dig(:test, :google_api, :google_custom_search_api_key)
+  config.google_custom_search_engine_id  = Rails.application.credentials.dig(:test, :google_api, :google_custom_search_engine_id)
+
 end
