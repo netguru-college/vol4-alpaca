@@ -8,4 +8,12 @@ class Alpaca < ApplicationRecord
 
   has_many :ownerships
   has_many :users, through: :ownerships
+
+  def last_owner
+    if ownerships.last != nil
+      ownerships.last.user_id
+    end
+  end
+
+
 end
