@@ -3,6 +3,9 @@
 @import "navbar";
 @import "footer";
 
+.container h1 {
+  margin-top: 20px;
+}
 .alpaca-image {
   height: 40vh;
   width: 40vw;
@@ -52,7 +55,7 @@
 }
 
 .card {
-  margin: 50px;
+  margin: 20px;
 }
 
 .login-form {
