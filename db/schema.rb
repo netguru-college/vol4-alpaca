@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_104633) do
+ActiveRecord::Schema.define(version: 2019_02_19_142429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_104633) do
     t.string "name"
     t.string "provider"
     t.string "uid"
+    t.string "avatar_url", default: "https://st3.depositphotos.com/6811030/13096/v/1600/depositphotos_130962816-stock-illustration-cartoon-farmer-or-redneck.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
