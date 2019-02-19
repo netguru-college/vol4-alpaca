@@ -11,6 +11,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    alpaca = CreateRandomAlpaca.new.call
+    alpaca.save
+    ownership = Ownership.new
+    ownership.alpaca_id = alpaca.id
+    ownership.user_id = current_user.id
+    ownership.save
+
+
   end
 
   def edit
