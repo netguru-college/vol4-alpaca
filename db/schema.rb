@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_212629) do
+ActiveRecord::Schema.define(version: 2019_02_19_215829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_212629) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "owner_from"
+    t.datetime "owner_from", default: "2019-02-19 21:59:27"
     t.datetime "owner_to"
     t.index ["alpaca_id"], name: "index_ownerships_on_alpaca_id"
     t.index ["user_id"], name: "index_ownerships_on_user_id"
