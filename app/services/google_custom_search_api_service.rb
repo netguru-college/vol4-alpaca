@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This module is responsible for making external API calls
 # It should be considered to add HTTParty gem, as Ruby's HTTP library is
 # hard to use and obsolete.
