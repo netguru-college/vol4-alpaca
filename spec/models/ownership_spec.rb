@@ -13,6 +13,4 @@ RSpec.describe Ownership, type: :model do
     it { is_expected.to have_db_column :alpaca_id }
     it { is_expected.to have_db_column :alpaca_id }
   end
-
-
 end
