@@ -1,8 +1,7 @@
 FactoryBot.define do
-  factory :event do
+  factory :category do
     name { "MyString" }
     description { "MyString" }
-    bid { [1..10000].to_a.sample }
-    category
+
   end
 end
