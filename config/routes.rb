@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :alpacas
   resources :users
+  resources :events
   #resources :ownerships
 
   resources :alpacas do
