@@ -1,0 +1,63 @@
+
+.navbar_styled {
+
+  a {
+    color: $white;
+  }
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    color: $gray-200;
+
+  }
+
+  .dropdown-menu {
+    background-color: $gray-500;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    color: black;
+
+    a {
+      color: $black;
+
+      &:visited {
+        color: $black;
+      }
+
+      &:hover {
+        color: $black;
+        background-color: $gray-300;
+      }
+    }
+  }
+
+
+  div {
+    &.field, &.actions {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+
+.navbrand-logo-image {
+  height: 30px;
+  position: relative;
+  top: 0px;
+}
+
+.alpaca-image {
+  height: 40vh;
+  width: 40vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
