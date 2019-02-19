@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Alpaca < ApplicationRecord
   validates :name,
             :quote,
@@ -14,6 +16,4 @@ class Alpaca < ApplicationRecord
       ownerships.last.user_id
     end
   end
-
-
 end
