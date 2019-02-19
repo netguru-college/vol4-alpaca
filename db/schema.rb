@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_150250) do
+ActiveRecord::Schema.define(version: 2019_02_19_152540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 2019_02_19_150250) do
     t.index ['skill_id'], name: 'index_alpaca_skills_on_skill_id'
   end
 
-  create_table 'alpacas', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'quote', null: false
-    t.string 'picture_url', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.boolean 'gender', null: false
-    t.boolean 'for_sale'
+  create_table "alpacas", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "quote", null: false
+    t.text "picture_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "gender", null: false
+    t.boolean "for_sale"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -92,20 +92,20 @@ ActiveRecord::Schema.define(version: 2019_02_19_150250) do
     t.datetime 'updated_at', null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'name'
-    t.string 'provider'
-    t.string 'uid'
-    t.string 'avatar_url', default: 'https://st3.depositphotos.com/6811030/13096/v/1600/depositphotos_130962816-stock-illustration-cartoon-farmer-or-redneck.jpg'
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "provider"
+    t.string "uid"
+    t.text "avatar_url", default: "https://st3.depositphotos.com/6811030/13096/v/1600/depositphotos_130962816-stock-illustration-cartoon-farmer-or-redneck.jpg"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key 'alpaca_events', 'alpacas'
