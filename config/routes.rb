@@ -6,17 +6,15 @@ Rails.application.routes.draw do
 
   resources :users
 
+
   get '/auth/failure' => 'omniauth_callbacks#failure'
   root 'home#welcome'
-  get 'dashboard', to: "home#dashboard", as: :dashboard
-  get 'market_place', to: "alpacas#market_place", as: :market_place
-  #put 'change_owner', to: "ownerships#change_owner", as: :change_
-
+  get 'dashboard', to: 'home#dashboard', as: :dashboard
+  get 'market_place', to: 'alpacas#market_place', as: :market_place
+  # put 'change_owner', to: "ownerships#change_owner", as: :change_
 
   resources :alpacas
-  resources :users
-  resources :events
-  #resources :ownerships
+  # resources :ownerships
 
   resources :alpacas do
     put :sell, on: :member
