@@ -1,0 +1,9 @@
+.card-deck
+  - @events.each do |alpaca|
+    .col-3
+      .card
+        = link_to alpaca_path(alpaca) do
+          %img.card-img-top{:alt => "#{alpaca.name}", :src => "#{alpaca.picture_url}"}/
+          .card-body
+            %h5.card-title="#{alpaca.name}"
+            %p.card-text="Personal motto: #{alpaca.quote}"
