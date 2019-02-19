@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_104633) do
   create_table "category_skills", force: :cascade do |t|
     t.bigint "category_id"
     t.bigint "skill_id"
-    t.integer "weight"
+    t.integer "weight", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_category_skills_on_category_id"
