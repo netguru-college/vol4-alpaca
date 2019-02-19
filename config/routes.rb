@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # put 'change_owner', to: "ownerships#change_owner", as: :change_
 
   resources :alpacas
+  resources :events
   # resources :ownerships
 
   resources :alpacas do

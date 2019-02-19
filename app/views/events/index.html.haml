@@ -1,2 +1,10 @@
 %h1 Events
-= render 'listing'
+- unless @events.empty?
+  = render 'listing'
+- else
+  %h3 Add some awesome event!
+
+.row
+  .col-2.col-centered
+    .add-button
+      = link_to 'Add event', events_path, method: :post, class: 'btn btn-info btn-lg'

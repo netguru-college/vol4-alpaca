@@ -2,10 +2,12 @@
 @import "bootswatch";
 @import "navbar";
 @import "footer";
+@import "events";
 
 .container h1 {
   margin-top: 20px;
 }
+
 .alpaca-image {
   height: 40vh;
   width: 40vw;
@@ -57,7 +59,7 @@
 .card {
   margin-top: 20px;
   min-width: 200px;
-  
+
 }
 
 .login-form {
