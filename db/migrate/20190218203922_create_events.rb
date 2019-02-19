@@ -5,8 +5,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :description, null: false
       t.integer :bid
 
-      t.references :category, foreign_key: true, null: false
-
       t.timestamps
     end
   end
