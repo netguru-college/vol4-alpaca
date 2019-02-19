@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  shared:
+    created: "%{resource} has been created!"
+    updated: "%{resource} has been updated!"
+    deleted: "%{resource} has been deleted!"
