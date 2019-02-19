@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe CategorySkill, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject {FactoryBot.build(:category_skill)}
+
+  it {should validate_numericality_of(:weight).is_greater_than(0)}
+
+  describe 'associations' do
+    it {should belong_to :skill}
+    it {should belong_to :category}
+
+  end
 end

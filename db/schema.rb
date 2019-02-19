@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_092344) do
+ActiveRecord::Schema.define(version: 2019_02_19_104633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,12 +45,31 @@ ActiveRecord::Schema.define(version: 2019_02_19_092344) do
     t.boolean "for_sale"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_skills", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "skill_id"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_skills_on_category_id"
+    t.index ["skill_id"], name: "index_category_skills_on_skill_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.integer "bid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_events_on_category_id"
   end
 
   create_table "ownerships", force: :cascade do |t|
@@ -88,6 +107,9 @@ ActiveRecord::Schema.define(version: 2019_02_19_092344) do
   add_foreign_key "alpaca_events", "events"
   add_foreign_key "alpaca_skills", "alpacas"
   add_foreign_key "alpaca_skills", "skills"
+  add_foreign_key "category_skills", "categories"
+  add_foreign_key "category_skills", "skills"
+  add_foreign_key "events", "categories"
   add_foreign_key "ownerships", "alpacas"
   add_foreign_key "ownerships", "users"
 end

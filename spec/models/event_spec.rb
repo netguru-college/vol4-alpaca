@@ -9,6 +9,7 @@ RSpec.describe Event, type: :model do
   describe 'associations' do
     it { should have_many :alpaca_events }
     it { should have_many(:alpacas).through :alpaca_events }
-    #it { should belong_to :categories }
+    it { should belong_to :category }
+
   end
 end
