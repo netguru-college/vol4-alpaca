@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAlpacaSkillsAndSkills < ActiveRecord::Migration[5.2]
   def change
     create_table :skills do |t|
@@ -15,7 +17,7 @@ class CreateAlpacaSkillsAndSkills < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :alpaca_skills, [:alpaca_id, :skill_id], unique: true
+    add_index :alpaca_skills, %i[alpaca_id skill_id], unique: true
 
     reversible do |change|
       change.up do
