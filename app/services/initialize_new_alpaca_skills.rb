@@ -1,8 +1,8 @@
 class InitializeNewAlpacaSkills
   SKILLS = [
-    STRENGTH = Skill.find_by(name: 'Strength'),
-    SPEED    = Skill.find_by(name: 'Speed'   ),
-    WISDOM   = Skill.find_by(name: 'Wisdom'  ),
+    Skill.find_by(name: 'Strength'),
+    Skill.find_by(name: 'Speed'   ),
+    Skill.find_by(name: 'Wisdom'  ),
   ]
 
   def initialize(alpaca)
