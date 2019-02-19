@@ -11,4 +11,5 @@ RSpec.describe Skill, type: :model do
   it { should validate_uniqueness_of(:description).case_insensitive }
   it { should have_many :alpaca_skills }
   it { should have_many(:alpacas).through :alpaca_skills }
+  it { should have_many(:categories).through(:category_skills)}
 end
