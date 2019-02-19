@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AlpacaSkill < ApplicationRecord
   validates_inclusion_of  :level,
                           in: (1..100)

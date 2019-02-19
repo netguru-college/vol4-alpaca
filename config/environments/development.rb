@@ -67,7 +67,5 @@ Rails.application.configure do
   # API key and engine ID for Google Custom Search API
 
   config.google_custom_search_api_key = Rails.application.credentials.dig(:development, :google_api, :google_custom_search_api_key)
-  config.google_custom_search_engine_id  = Rails.application.credentials.dig(:development, :google_api, :google_custom_search_engine_id)
-
-
+  config.google_custom_search_engine_id = Rails.application.credentials.dig(:development, :google_api, :google_custom_search_engine_id)
 end

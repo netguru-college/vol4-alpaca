@@ -14,6 +14,4 @@ Rails.logger.info 'Seeds crating started'
   user.save!
 end
 
-
-
 Rails.logger.info 'Seeds crating finished'
