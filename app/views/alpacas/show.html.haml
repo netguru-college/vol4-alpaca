@@ -1,0 +1,19 @@
+.row
+  .col-12
+    %h1 #{@alpaca.name}
+  .col-4
+    %img.img-thumbnail{:alt => "Avatar", :src => "#{@alpaca.picture_url}"}
+  .col-8
+    %p
+    %p Favorite quote: #{@alpaca.quote}
+    %p
+    %p
+
+
+
+- if current_user.id == @alpaca.last_owner && @alpaca.for_sale == false
+  = link_to 'Sell Alpaca', sell_alpaca_path, method: :put, class: 'btn btn-info btn-lg'
+- elsif current_user.id == @alpaca.last_owner && @alpaca.for_sale == true
+  = link_to 'Cancel the sale', sell_alpaca_path, method: :put, class: 'btn btn-secondary btn-lg'
+- else
+  = link_to 'Buy Alpaca', change_owner_ownership_path, method: :put, class: 'btn btn-info btn-lg'
