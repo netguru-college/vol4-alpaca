@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
   resources :users
+ 
 
   get '/auth/failure' => 'omniauth_callbacks#failure'
   root 'home#welcome'
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
   # put 'change_owner', to: "ownerships#change_owner", as: :change_
 
   resources :alpacas
-  resources :users
   # resources :ownerships
 
   resources :alpacas do
