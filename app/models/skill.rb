@@ -9,13 +9,6 @@ class Skill < ApplicationRecord
   has_many :alpaca_skills
   has_many :alpacas, through: :alpaca_skills
 
-
   has_many :category_skills
   has_many :categories, through: :category_skills
-
-
-
-
-
-
 end

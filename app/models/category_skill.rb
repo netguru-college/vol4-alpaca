@@ -1,5 +1,6 @@
-class CategorySkill < ApplicationRecord
+# frozen_string_literal: true
 
+class CategorySkill < ApplicationRecord
   validates :weight, numericality: { greater_than: 0 }
   belongs_to :category
   belongs_to :skill

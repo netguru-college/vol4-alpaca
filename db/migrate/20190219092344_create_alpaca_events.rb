@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAlpacaEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :alpaca_events do |t|
