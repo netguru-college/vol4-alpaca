@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_170829) do
     t.string "picture_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "gender"
+    t.boolean "gender", null: false
   end
 
   create_table "ownerships", force: :cascade do |t|
