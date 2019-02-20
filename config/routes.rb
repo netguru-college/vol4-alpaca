@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about', as: :about
   get 'market_place', to: 'alpacas#market_place', as: :market_place
   # put 'change_owner', to: "ownerships#change_owner", as: :change_
+  resources :alpacas do
+    put :update, on: :member
+  end
 
   resources :alpacas
   # resources :ownerships
 
-  resources :alpacas do
-    put :sell, on: :member
-  end
+
   resources :ownerships do
     put :change_owner, on: :member
   end
