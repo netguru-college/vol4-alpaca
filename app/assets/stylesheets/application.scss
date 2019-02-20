@@ -1,7 +1,7 @@
-@import "variables";
-@import "bootswatch";
-@import "navbar";
-@import "footer";
+@import 'variables';
+@import 'bootswatch';
+@import 'navbar';
+@import 'footer';
 
 .container h1 {
   margin-top: 20px;
@@ -26,15 +26,13 @@
   z-index: -100;
 }
 
-
 .half-screen {
   float: right;
   width: 50%;
-
 }
 
-.form-group-image{
-  float: right
+.form-group-image {
+  float: right;
 }
 
 .btn_margin {
@@ -57,14 +55,12 @@
 .card {
   margin-top: 20px;
   min-width: 200px;
-  
 }
 
 .login-form {
   width: 400px;
   height: 30vh;
   margin: 30px auto;
-
 }
 
 .frame-form {
@@ -103,7 +99,8 @@
   text-align: center;
 }
 
-.form-control, .btn {
+.form-control,
+.btn {
   min-height: 38px;
   border-radius: 2px;
 }
