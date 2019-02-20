@@ -2,10 +2,12 @@
 @import 'bootswatch';
 @import 'navbar';
 @import 'footer';
+@import 'carousel';
 
 .container h1 {
   margin-top: 20px;
 }
+
 .alpaca-image {
   height: 40vh;
   width: 40vw;
@@ -46,6 +48,7 @@
   margin-top: 20px;
   background-image: url('welcome.jpg');
   background-size: cover;
+
   p {
     color: $black;
     font-weight: bold;
