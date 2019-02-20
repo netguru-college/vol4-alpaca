@@ -1,12 +1,11 @@
-%h1 My Events
-= render partial: 'listing', collection: @current_user_events
+%h1 My events
+= render 'listing', events: current_user.events
 %h1 Available events
 - unless @events.empty?
-  = render partial: 'listing', collection: @events
+  = render 'listing', events: @events
 - else
-  %h3 Add some awesome event!
+  %h3 No events?! How it's possible?! You'd better add something!
 
-.row
-  .col-2.col-centered
-    .add-button
-      = link_to 'Add event', new_event_path, method: :get, class: 'btn btn-info btn-lg'
+.col-2.col-centered
+  .add_button
+    = link_to 'Add event', new_event_path, method: :get, class: 'btn btn-info btn-lg'

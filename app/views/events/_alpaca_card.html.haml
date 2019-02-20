@@ -1,0 +1,10 @@
+.card-deck
+  - @alpacas.each do |alpaca|
+    .col-4
+      .well.pull-right
+        .card
+          = link_to alpaca_path(alpaca) do
+            %img.card-img-top{:alt => "#{alpaca.name}", :src => "#{alpaca.picture_url}"}/
+            .card-body
+              %h5.card-title="#{alpaca.name}"
+              %p.card-text="Skills: #{}"

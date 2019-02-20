@@ -2,8 +2,8 @@
 
 class EventsController < ApplicationController
   def index
-    @user = current_user
-    @events = Event.joins(:alpacas)
+    @events = Event.where.not(user_id: current_user.id)
+                   .joins(:alpacas)
                    .group('events.id')
                    .having('count(alpaca_id) < 2')
   end
@@ -11,8 +11,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @alpacas = @event.alpacas
-    @user = current_user
-    @winner = winner ? Alpaca.find(winner.alpaca_id) : nil
+    @winner = @event.alpaca_events.find_by(winner: true)&.alpaca
   end
 
   def new
@@ -21,18 +20,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.user_id = current_user.id
-    @alpaca = current_user
-              .alpacas
-              .find(params[:event][:alpacas])
+    @event = current_user.events.new(event_params)
+    @alpaca = current_user.alpacas.find(params[:event][:alpacas])
 
     if @event.save
-      AlpacaEvent.new(
-                      alpaca_id: @alpaca.id,
-                      event_id:  @event.id
-                     )
-                  .save
+      @event.alpacas << @alpaca
       redirect_to @event
     else
       render 'new'
@@ -43,21 +35,9 @@ class EventsController < ApplicationController
     @alpaca = Alpaca.find(params[:event][:alpacas])
     @event = Event.find(params[:id])
 
-    if AlpacaEvent.new(
-                        alpaca_id: @alpaca.id,
-                        event_id: @event.id
-                      )
-                      .save
-
-      AlpacaEvent.where(
-                          event_id:   @event.id,
-                          alpaca_id:  CalculateEventWinner
-                                      .new(@event)
-                                      .call
-                        )
-                 .update(
-                          winner:     true
-                        )
+    if @event.alpacas << @alpaca
+      @event.alpaca_events.find_by(event_id: @event.id, alpaca_id: CalculateEventWinner.new(@event).call)
+            .update(winner: true)
 
       redirect_to @event
     else
@@ -69,11 +49,5 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :category_id)
-  end
-
-  def winner
-    @event.alpaca_events
-          .select { |event| event[:winner] == true }
-          .first
   end
 end

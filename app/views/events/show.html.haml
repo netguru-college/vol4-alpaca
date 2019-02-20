@@ -1,15 +1,10 @@
-.card-deck
-  - @alpacas.each do |alpaca|
-    .col-3
-      .card
-        .card-body
-          %h5.card-title="#{alpaca.name}"
+= render 'alpaca_card', alpacas: @alpacas
 
-- if button_visible?(@user, @event, @winner)
+- if button_visible?(current_user, @event, @winner)
   .col-2.col-centered
     .add-button
       = simple_form_for @event do |f|
-        = f.input :alpacas, collection: @user.alpacas
+        = f.input :alpacas, collection: current_user.alpacas
         = f.submit "Join event", class: "btn btn-primary"
 
 - if @winner
