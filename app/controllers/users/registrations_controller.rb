@@ -36,6 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def cancel
     super
+
   end
 
   def configure_sign_up_params

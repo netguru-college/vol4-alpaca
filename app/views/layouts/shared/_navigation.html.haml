@@ -20,6 +20,7 @@
               = current_user.email
             .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdown-menu-link"}
               = link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
+              = link_to t('navbar.edit_profile'), edit_user_registration_path, class: 'dropdown-item'
         - else
           %li.nav-item.btn_margin
             = link_to t('navbar.signin'), new_user_session_path, class: 'nav-link', class: 'btn btn-outline-light'

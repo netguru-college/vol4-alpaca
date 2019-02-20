@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
-  has_many :ownerships
+  has_many :ownerships, dependent: :destroy
   has_many :alpacas, through: :ownerships
   has_many :events
 
