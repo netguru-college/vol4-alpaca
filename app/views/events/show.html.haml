@@ -19,4 +19,6 @@
       %h3 The winner is #{@winner.name}!
   .row
     .col-12.points-display
-      %h3 Lorem ipsum
+      - @alpacas.each do |alpaca|
+        #{alpaca.name} got #{get_alpaca_points(alpaca, @event)} points.
+        %br

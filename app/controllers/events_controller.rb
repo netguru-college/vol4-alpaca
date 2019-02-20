@@ -36,7 +36,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.alpacas << @alpaca
-      @event.alpaca_events.find_by(event_id: @event.id, alpaca_id: CalculateEventWinner.new(@event).call)
+      @points = CalculateEventPointsAndAssignToAlpacas.new(@event).call
+      @event.alpaca_events.find_by(event_id: @event.id, alpaca_id: @points.max_by{ |_alpaca_id, points| points })
             .update(winner: true)
 
       redirect_to @event

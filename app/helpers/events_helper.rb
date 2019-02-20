@@ -14,5 +14,9 @@ module EventsHelper
     return 'Female' unless alpaca.gender
   end
 
+  def get_alpaca_points(alpaca, event)
+    alpaca.alpaca_events.find_by(event_id: event.id)&.points
+  end
+
   def get_alpaca_skills(alpaca); end
 end

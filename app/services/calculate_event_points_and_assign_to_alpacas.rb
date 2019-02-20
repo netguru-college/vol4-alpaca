@@ -1,28 +1,32 @@
-class CalculateEventWinner
+class CalculateEventPointsAndAssignToAlpacas
   def initialize(event)
     @event = event
   end
 
   def call
-    calculate_winner.first
+    points = calculate_points
+    points.each do |alpaca_id, points|
+      Alpaca.find(alpaca_id).alpaca_events.find_by(event_id: @event.id).update(points: points)
+    end
+    points
   end
 
   private
 
-  def calculate_winner
+  def calculate_points
     points = {}
 
-    get_levels.each do |alpaca_id, level|
+    calculate_levels.each do |alpaca_id, level|
       points[alpaca_id] = @event
                           .category
                           .category_skills
                           .first
                           .weight * (roll(1, 20) + level)
     end
-    points.max_by{ |_alpaca_id, points| points }
+    points
   end
 
-  def get_levels
+  def calculate_levels
     levels = {}
 
     @event.alpacas.each do |alpaca|
