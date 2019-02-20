@@ -14,7 +14,7 @@ RSpec.describe Event, type: :model do
     it { should have_many :alpaca_events }
     it { should have_many(:alpacas).through :alpaca_events }
     it { should belong_to :category }
-
+    it { should belong_to :user }
 
   end
 
