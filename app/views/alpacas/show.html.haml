@@ -8,12 +8,14 @@
     %p Favorite quote: #{@alpaca.quote}
     %p
     %p
-
-
-
-- if current_user.id == @alpaca.current_owner && @alpaca.for_sale == false
-  = link_to 'Sell Alpaca', sell_alpaca_path, method: :put, class: 'btn btn-info btn-lg'
-- elsif current_user.id == @alpaca.current_owner && @alpaca.for_sale == true
-  = link_to 'Cancel the sale', sell_alpaca_path, method: :put, class: 'btn btn-secondary btn-lg'
-- elsif current_user.id != @alpaca.current_owner && @alpaca.for_sale == true
-  = link_to 'Buy Alpaca', change_owner_ownership_path, method: :put, class: 'btn btn-info btn-lg'
+    %p
+      - if @alpaca.for_sale
+        ="Price: #{@alpaca.price}"
+        = image_tag("hay.png", :alt => "hay", size: "20x20")
+    %p
+    %p
+    %p
+      - if @alpaca.current_owner.include?(current_user.id) && !@alpaca.for_sale
+        =render 'sellform'
+      - else
+        =render 'button'

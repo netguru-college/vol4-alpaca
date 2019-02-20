@@ -1,0 +1,3 @@
+= simple_form_for @alpaca do |f|
+  = f.input :price, label: 'How much hay do you want?', required: true, error: "Don't be so generous. Enter some price ;)"
+  = f.button :submit, "Sell Alpaca", class: 'btn btn-success btn-lg'

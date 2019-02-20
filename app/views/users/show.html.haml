@@ -5,8 +5,11 @@
     %img.img-thumbnail{:alt => "Avatar", :src => "#{@user.avatar_url}"}
   .col-8
     %p Name: #{@user.name}
+    %p
+      = "Fortune: #{current_user.hay}"
+      = image_tag("hay.png", :alt => "hay", size: "20x20")
     %p e-mail: #{@user.email}
-    %p Alpacas owned: #{@user.alpacas.count}
+    %p Alpacas owned: #{Ownership.where(owner_to: nil, user_id: current_user).count}
     %p Events won: not implemented
     %p
     %p

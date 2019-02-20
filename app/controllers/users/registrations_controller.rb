@@ -11,13 +11,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    alpaca = CreateRandomAlpaca.new.call
-    alpaca.save
-    ownership = Ownership.new
-    ownership.alpaca_id = alpaca.id
-    ownership.user_id = current_user.id
-    ownership.save
-
+    if current_user
+      alpaca = CreateRandomAlpaca.new.call
+      alpaca.save
+      ownership = Ownership.new
+      ownership.alpaca_id = alpaca.id
+      ownership.user_id = current_user.id
+      ownership.save
+      current_user.hay = 200
+      current_user.save
+    end
 
   end
 
@@ -54,6 +57,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name avatar_url])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name avatar_url hay])
   end
 end
