@@ -13,6 +13,7 @@ deploy:
   provider: heroku
   api_key:
     secure: SaUEFbyfYJc3gZNogbP9Dn/6WrgqeHkQ/a0owwRrANSUGDXyfkVFw4JmHqV5SSw+qd7hfFusGJ1wxw9x62NpXdcXrO8GXbwj5bj1TdFcQr6fJOTJBhurlml5u2WU3P9/4ubgMTUkXt1rvkvurfe4wzDNQOi8eHIFFzAHLq2gG1F2YbRnlVefIoXmHS0MpO3fAFmVdRMMHyazW5O0A2rn8jwuF6D+PYi4AEhjPuxpb171AwWTw0jfCKWL4TNkGRPeSuSKgTzyPF3DJ+ykCfgAkvmqHdkgPd3qvW4pTqsUS1BIw/SzQFBz1wtgJ6aLESkmKTFp7kZPWTz3ALOGk1dWPKiLxI3wvGr62u7J+Lm0tnEjip0kimKoeBc9Bs8stLWx9iq9olj213+aBTfdeEBGSrqtsdOD+S0psnIt3kqhlk/uT29R7i5P+Xdr7jZlrXvoA+nCiIE0XTERbXr5Tan6kuuy0knMLZFuoc2YUT3d5pSOCIy/uWSe6VVxNKXpcsrcTQvYu0JnlDWh86kXiPTF5fX/CBi3YiIMyMuqfGmRYxgVr73aT0f7c5deHkvrc3t2JCMSr3dtIG0TaFCrypwjH/nj2kkgTWV11iIib+KbF3y9UzwKR4amgkx0emcQKISEv+91W7pMOVNCFW27xpPZtYhm7hTvwBBM6b8+zSL3tvY=
+  run: rake db:migrate
   app: vol-4-alpaca
   on:
     repo: netguru-code-college/vol4-alpaca
