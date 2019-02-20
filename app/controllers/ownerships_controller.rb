@@ -10,18 +10,23 @@ class OwnershipsController < ApplicationController
 
   def change_owner
     if @alpaca.for_sale
-      if @alpaca.ownerships.any?
-        @seller = User.find(@alpaca.ownerships.last.user_id)
-        @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now, sold_for: @alpaca.price)
-        @seller.update_attributes(hay: @seller.hay + @alpaca.price)
+      if  current_user.hay >= @alpaca.price
+        if @alpaca.ownerships.any?
+          @seller = User.find(@alpaca.ownerships.last.user_id)
+          @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now, sold_for: @alpaca.price)
+          @seller.update_attributes(hay: @seller.hay + @alpaca.price)
+        end
         current_user.update_attributes(hay: current_user.hay - @alpaca.price)
+        @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
+        @alpaca.update_attributes(for_sale: false)
+      else
+        flash[:danger] = "You don't have enouqh hay!"
+        redirect_to alpaca_path(@alpaca)
       end
-      @alpaca.toggle(:for_sale)
-      @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
-      @alpaca.update_attributes(for_sale: false)
-      redirect_to market_place_path
+
     else
-      flash.now[:danger] = "This Alpaca is not for sale!"
+      flash[:danger] = "This Alpaca is not for sale!"
+      redirect_to market_place_path
     end
   end
 end

@@ -18,6 +18,7 @@ class AlpacasController < ApplicationController
   def update
     if !@alpaca.for_sale
       @alpaca.update_attributes(for_sale: true)
+      flash[:success] = "Alpaca put on market"
       if @alpaca.update_attributes(alpaca_params)
         redirect_to alpacas_path
       else
