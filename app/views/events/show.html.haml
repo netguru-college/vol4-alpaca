@@ -5,8 +5,12 @@
         .card-body
           %h5.card-title="#{alpaca.name}"
 
-.col-2.col-centered
-  .add-button
-    = simple_form_for @event do |f|
-      = f.input :alpacas, collection: @user.alpacas
-      = f.submit "Join event", class: "btn btn-primary"
+- if button_visible?(@user, @event, @winner)
+  .col-2.col-centered
+    .add-button
+      = simple_form_for @event do |f|
+        = f.input :alpacas, collection: @user.alpacas
+        = f.submit "Join event", class: "btn btn-primary"
+
+- if @winner
+  %h3 The winner is #{@winner.name}!!!

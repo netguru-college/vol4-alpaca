@@ -1,5 +1,5 @@
 class CalculateEventWinner
-  def init(event)
+  def initialize(event)
     @event = event
   end
 
@@ -17,7 +17,7 @@ class CalculateEventWinner
                          .category
                          .category_skills
                          .first
-                         .weight * roll(1, 6) * level
+                         .weight * (roll(1, 20) + level)
     end
     points.max_by{ |alpaca_id, points| points }
   end

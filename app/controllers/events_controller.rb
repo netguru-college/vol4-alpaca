@@ -12,6 +12,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @alpacas = @event.alpacas
     @user = current_user
+    @winner = winner ? Alpaca.find(winner.alpaca_id) : nil
   end
 
   def new
@@ -21,6 +22,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     @alpaca = current_user
               .alpacas
               .find(params[:event][:alpacas])
@@ -28,9 +30,9 @@ class EventsController < ApplicationController
     if @event.save
       AlpacaEvent.new(
                       alpaca_id: @alpaca.id,
-                      event_id: @event.id
+                      event_id:  @event.id
                      )
-                     .save
+                  .save
       redirect_to @event
     else
       render 'new'
@@ -53,9 +55,9 @@ class EventsController < ApplicationController
                                       .new(@event)
                                       .call
                         )
-                 #.update(
-                  #        winner:     true
-                  #      )
+                 .update(
+                          winner:     true
+                        )
 
       redirect_to @event
     else
@@ -67,5 +69,11 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :category_id)
+  end
+
+  def winner
+    @event.alpaca_events
+          .select { |event| event[:winner] == true }
+          .first
   end
 end
