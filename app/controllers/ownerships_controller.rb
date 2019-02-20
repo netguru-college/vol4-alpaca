@@ -1,10 +1,18 @@
 # frozen_string_literal: true
 
 class OwnershipsController < ApplicationController
+
+  before_action :find_alpaca
+
+  def index
+    @ownerships = Ownership.where(alpaca_id: @alpaca.id)
+  end
+
   def change_owner
-    @alpaca = Alpaca.find(params[:id])
     if @alpaca.for_sale
-      @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
+      if @alpaca.ownerships.any?
+        @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
+      end
       @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
       @alpaca.update_attributes(for_sale: false)
       redirect_to market_place_path
@@ -14,6 +22,12 @@ class OwnershipsController < ApplicationController
   end
 end
 
-def ownersh_params
-  params.require(:ownership).permit(:owner_to, :owner_from)
+private
+
+def ownerships_params
+  params.require(:ownership).permit(:owner_to)
+end
+
+def find_alpaca
+  @alpaca = Alpaca.find(params[:id])
 end

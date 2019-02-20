@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(version: 2019_02_20_133017) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "owner_from", default: "2019-02-20 11:29:22"
+
+    t.datetime "owner_from", default: "2019-02-20 12:57:02"
+
     t.datetime "owner_to"
     t.index ["alpaca_id"], name: "index_ownerships_on_alpaca_id"
     t.index ["user_id"], name: "index_ownerships_on_user_id"
