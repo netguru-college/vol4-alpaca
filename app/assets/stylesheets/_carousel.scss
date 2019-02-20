@@ -11,11 +11,10 @@
     width: 100vw;
   }
 
-  @for $i from 1 through 4 {
+  @for $i from 1 through 3 {
     .background-slide-#{$i} {
       background: url('backgrounds/#{$i}.jpg') no-repeat center center;
       background-size: cover;
-
     }
   }
 }
