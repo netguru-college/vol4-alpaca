@@ -11,5 +11,7 @@ RSpec.describe AlpacaEvent, type: :model do
   describe 'db_columns' do
     it { should have_db_column :alpaca_id }
     it { should have_db_column :event_id }
+    it { should have_db_column :winner }
+
   end
 end

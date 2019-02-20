@@ -10,5 +10,6 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { should have_many :alpacas }
     it { should have_many(:alpacas).through(:ownerships) }
+    it { should have_many :events }
   end
 end

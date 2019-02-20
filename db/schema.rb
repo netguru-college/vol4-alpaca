@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_215829) do
+ActiveRecord::Schema.define(version: 2019_02_20_112959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_215829) do
     t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "winner", default: false, null: false
     t.index ["alpaca_id"], name: "index_alpaca_events_on_alpaca_id"
     t.index ["event_id"], name: "index_alpaca_events_on_event_id"
   end
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_215829) do
     t.datetime "updated_at", null: false
     t.boolean "gender", null: false
     t.boolean "for_sale"
+    t.boolean "busy", default: false, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -70,7 +72,9 @@ ActiveRecord::Schema.define(version: 2019_02_19_215829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id", null: false
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "ownerships", force: :cascade do |t|
@@ -78,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_215829) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "owner_from", default: "2019-02-19 21:59:27"
+    t.datetime "owner_from", default: "2019-02-20 11:15:14"
     t.datetime "owner_to"
     t.index ["alpaca_id"], name: "index_ownerships_on_alpaca_id"
     t.index ["user_id"], name: "index_ownerships_on_user_id"
@@ -114,6 +118,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_215829) do
   add_foreign_key "category_skills", "categories"
   add_foreign_key "category_skills", "skills"
   add_foreign_key "events", "categories"
+  add_foreign_key "events", "users"
   add_foreign_key "ownerships", "alpacas"
   add_foreign_key "ownerships", "users"
 end
