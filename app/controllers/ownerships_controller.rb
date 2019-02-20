@@ -9,10 +9,16 @@ class OwnershipsController < ApplicationController
   end
 
   def change_owner
+<<<<<<< HEAD
     if @alpaca.for_sale
       if @alpaca.ownerships.any?
         @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
       end
+=======
+    @alpaca = Alpaca.find(params[:id])
+    if @alpaca.for_sale
+      @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
+>>>>>>> master
       @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
       @alpaca.update_attributes(for_sale: false)
       redirect_to market_place_path

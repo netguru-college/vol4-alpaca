@@ -24,5 +24,6 @@ RSpec.describe Alpaca, type: :model do
     it { should have_db_column :picture_url }
     it { should have_db_column :gender }
     it { should have_db_column :for_sale }
+    it { should have_db_column :busy }
   end
 end

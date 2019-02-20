@@ -6,5 +6,6 @@ FactoryBot.define do
     description { 'MyString' }
     bid { [1..10_000].to_a.sample }
     category
+
   end
 end
