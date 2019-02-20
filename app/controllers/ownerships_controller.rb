@@ -3,7 +3,7 @@
 class OwnershipsController < ApplicationController
   def change_owner
     @alpaca = Alpaca.find(params[:id])
-    if @alpaca.for_sale == true
+    if @alpaca.for_sale
       @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
       @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
       @alpaca.update_attributes(for_sale: false)
