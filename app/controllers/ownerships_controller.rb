@@ -19,6 +19,8 @@ class OwnershipsController < ApplicationController
         current_user.update_attributes(hay: current_user.hay - @alpaca.price)
         @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
         @alpaca.update_attributes(for_sale: false)
+        flash[:success] = "You bought new Alpaca! :D"
+        redirect_to market_place_path
       else
         flash[:danger] = "You don't have enouqh hay!"
         redirect_to alpaca_path(@alpaca)
