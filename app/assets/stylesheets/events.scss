@@ -10,3 +10,29 @@
 .add-button {
   padding-top: 100px;
 }
+
+.event-card {
+  min-width: 500px;
+  min-height: 500px;
+}
+
+.versus {
+  font-size: 60px;
+  position: fixed;
+  top: 50%;
+  left: 48%;
+}
+
+.blank-card {
+  border: 0px;
+}
+
+.winner-display {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.points-display {
+  margin-top: 50px;
+  text-align: center;
+}

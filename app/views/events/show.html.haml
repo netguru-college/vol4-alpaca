@@ -1,11 +1,22 @@
-= render 'alpaca_card', alpacas: @alpacas
+.card-deck
+  = render 'alpaca_card', alpaca: @alpacas.first
+  .card.blank-card
+  = @alpacas.second ? (render 'alpaca_card', alpaca: @alpacas.second) : ''
+
+.versus
+  VS
 
 - if button_visible?(current_user, @event, @winner)
   .col-2.col-centered
-    .add-button
+    .fixed-button
       = simple_form_for @event do |f|
         = f.input :alpacas, collection: current_user.alpacas
         = f.submit "Join event", class: "btn btn-primary"
 
 - if @winner
-  %h3 The winner is #{@winner.name}!!!
+  .row
+    .col-12.winner-display
+      %h3 The winner is #{@winner.name}!
+  .row
+    .col-12.points-display
+      %h3 Lorem ipsum
