@@ -2,7 +2,8 @@
 
 class AlpacasController < ApplicationController
   def index
-    @alpacas = Alpaca.where(for_sale: false) || Alpaca.where(for_sale: nil)
+    ownerships = Ownership.where(owner_to: nil, user_id: current_user)    
+    @alpacas = Alpaca.where(id: ownerships.map{|o|o.alpaca_id}, for_sale: false)
   end
 
   def new; end
