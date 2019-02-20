@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class OwnershipsController < ApplicationController
+
+  before_action :find_alpaca
+
+  def index
+    @ownerships = Ownership.where(alpaca_id: @alpaca.id )
+  end
+
   def change_owner
-    @alpaca = Alpaca.find(params[:id])
     if @alpaca.for_sale == true
       @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
       @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
@@ -14,6 +20,12 @@ class OwnershipsController < ApplicationController
   end
 end
 
+private
+
 def ownersh_params
   params.require(:ownership).permit(:owner_to, :owner_from)
+end
+
+def find_alpaca
+  @alpaca = Alpaca.find(params[:id])
 end
