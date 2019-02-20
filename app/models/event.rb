@@ -8,4 +8,6 @@ class Event < ApplicationRecord
   has_many :alpacas, through: :alpaca_events
   has_many :alpaca_events
   belongs_to :category
+  belongs_to :user
+
 end

@@ -12,6 +12,6 @@ class Alpaca < ApplicationRecord
   has_many :users, through: :ownerships
 
   def current_owner
-    ownerships.last&.user_id
+    ownerships.where(owner_to: nil).pluck(:user_id)
   end
 end
