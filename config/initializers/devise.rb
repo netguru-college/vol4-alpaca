@@ -62,7 +62,7 @@ Devise.setup do |config|
   require 'omniauth-github'
 
   if Rails.env.production?
-    config.omniauth :github, Rails.application.credentials.dig(:production, :github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret), scope: 'user:email'
+    config.omniauth :github, Rails.application.credentials.dig(:github_production, :client_id_production), Rails.application.credentials.dig(:github_production, :client_secret_production), scope: 'user:email'
   else
     config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret), scope: 'user:email'
   end
