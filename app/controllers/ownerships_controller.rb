@@ -14,7 +14,7 @@ class OwnershipsController < ApplicationController
         @alpaca.ownerships.last.update_attributes(owner_to: DateTime.now)
       end
       @ownership = Ownership.create(user_id: current_user.id, alpaca_id: @alpaca.id)
-      @alpaca.update_attributes(for_sale: false)
+      @alpaca.toggle(:for_sale)
       redirect_to market_place_path
     else
       flash.now[:danger] = "This Alpaca is not for sale!"

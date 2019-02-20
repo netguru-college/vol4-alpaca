@@ -3,7 +3,8 @@
 class Alpaca < ApplicationRecord
   validates :name,
             :quote,
-            :picture_url, presence: true
+            :picture_url,
+            presence: true
 
   has_many :alpaca_skills
   has_many :skills, through: :alpaca_skills
