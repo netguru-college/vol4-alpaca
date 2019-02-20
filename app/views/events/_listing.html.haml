@@ -3,7 +3,7 @@
     .col-3
       .card
         = link_to event_path(event) do
-          %img.card-img-top{:alt => "#{event.name}", :src => "#{event.description}"}/
           .card-body
             %h5.card-title="#{event.name}"
-            %p.card-text="Personal motto: #{event.description}"
+            %p.card-text="#{event.description}"
+            = link_to 'Challenge another Alpaca!', event, method: :get, class: 'btn btn-info btn-sm'

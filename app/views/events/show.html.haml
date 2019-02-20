@@ -1,0 +1,12 @@
+.card-deck
+  - @alpacas.each do |alpaca|
+    .col-3
+      .card
+        .card-body
+          %h5.card-title="#{alpaca.name}"
+
+.col-2.col-centered
+  .add-button
+    = simple_form_for @event do |f|
+      = f.input :alpacas, collection: @user.alpacas
+      = f.submit "Join event", class: "btn btn-primary"
