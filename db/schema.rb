@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_142429) do
+ActiveRecord::Schema.define(version: 2019_02_19_215829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_142429) do
   create_table "alpacas", force: :cascade do |t|
     t.string "name", null: false
     t.string "quote", null: false
-    t.string "picture_url", null: false
+    t.text "picture_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "gender", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_142429) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "picture_url"
   end
 
   create_table "category_skills", force: :cascade do |t|
@@ -77,6 +78,8 @@ ActiveRecord::Schema.define(version: 2019_02_19_142429) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "owner_from", default: "2019-02-19 21:59:27"
+    t.datetime "owner_to"
     t.index ["alpaca_id"], name: "index_ownerships_on_alpaca_id"
     t.index ["user_id"], name: "index_ownerships_on_user_id"
   end
@@ -99,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_142429) do
     t.string "name"
     t.string "provider"
     t.string "uid"
-    t.string "avatar_url", default: "https://st3.depositphotos.com/6811030/13096/v/1600/depositphotos_130962816-stock-illustration-cartoon-farmer-or-redneck.jpg"
+    t.text "avatar_url", default: "https://st3.depositphotos.com/6811030/13096/v/1600/depositphotos_130962816-stock-illustration-cartoon-farmer-or-redneck.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
