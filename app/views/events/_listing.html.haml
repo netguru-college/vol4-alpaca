@@ -4,6 +4,7 @@
       .card
         = link_to event_path(event) do
           .card-body
+            %img.card-img-top{:alt => "#{event.category.name}", :src => "#{event.category.picture_url}"}/
             %h5.card-title="#{event.name}"
-            %p.card-text="#{event.description}"
-            = link_to 'Challenge another Alpaca!', event, method: :get, class: 'btn btn-info btn-sm'
+            %p.card-text="Description: #{event.description}"
+            %p.card-text="Category: #{event.category.name}"
