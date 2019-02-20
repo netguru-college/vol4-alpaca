@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
   has_many :ownerships
   has_many :alpacas, through: :ownerships
-  has_many :user
   has_many :events
 
   def self.new_with_session(params, session)
