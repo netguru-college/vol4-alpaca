@@ -4,9 +4,12 @@
   .col-4
     %img.img-thumbnail{:alt => "Avatar", :src => "#{@alpaca.picture_url}"}
   .col-8
-    %p
+    %p="Gender: #{convert_gender(@alpaca)}"
     %p Favorite quote: #{@alpaca.quote}
     %p
+    - get_alpaca_skills(@alpaca).each do |skill_name, value|
+      %p="#{skill_name}: #{value}"
+
     %p
     %p
       - if @alpaca.for_sale

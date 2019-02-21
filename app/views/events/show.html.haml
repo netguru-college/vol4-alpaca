@@ -10,7 +10,7 @@
   .col-2.col-centered
     .fixed-button
       = simple_form_for @event do |f|
-        = f.input :alpacas, collection: current_user.alpacas
+        = f.input :alpacas, collection: @alpacas_to_choose
         = f.submit "Join event", class: "btn btn-primary"
 
 - if @winner

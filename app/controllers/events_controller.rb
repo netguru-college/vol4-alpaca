@@ -11,12 +11,15 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @alpacas = @event.alpacas
+    ownerships = Ownership.where(owner_to: nil, user_id: current_user.id)
+    @alpacas_to_choose = Alpaca.where(id: ownerships.map{|o|o.alpaca_id}, for_sale: false)
     @winner = @event.alpaca_events.find_by(winner: true)&.alpaca
   end
 
   def new
     @event = Event.new
-    @alpacas = current_user.alpacas
+    ownerships = Ownership.where(owner_to: nil, user_id: current_user.id)
+    @alpacas = Alpaca.where(id: ownerships.map{|o|o.alpaca_id}, for_sale: false)
   end
 
   def create
