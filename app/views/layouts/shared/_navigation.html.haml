@@ -5,10 +5,11 @@
       = link_to "Alpaca Game", root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
       %ul.navbar-nav.mr-auto
-        %li.nav-item
-          = link_to "About Alpaca", about_path, class: 'nav-link'
+
       %ul.nav.navbar-nav.ml-auto
         - if user_signed_in?
+          %li.nav-item
+            = link_to "About Alpaca", about_path, class: 'nav-link'
           %li.nav-item
             = link_to "Alpacas", alpacas_path, class: 'nav-link'
           %li.nav-item
