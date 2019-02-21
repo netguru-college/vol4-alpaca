@@ -5,16 +5,18 @@ require 'faker'
 Rails.logger = Logger.new(STDOUT)
 Rails.logger.info 'Seeds crating started'
 
-skills = [
+skills = {
   'Strength': 'Describes physical strength of your alpaca',
   'Wisdom':   'Describes, intelligence and mentall skills of your alpaca',
   'Speed':    'Describes quickness and agility of your alpaca'
-]
+}
 
 skills.each do |name, description|
-  Skill.create(name: name, description: description)
+  Skill.create(name: name.to_s, description: description)
 end
 Rails.logger.info 'Strength, Wisdom and Speed skills have been created.'
+
+
 
 categories = [
   {
@@ -38,6 +40,13 @@ categories.each do |category|
   Category.create(name: category[:name], description: category[:description], picture_url: category[:picture_url])
 end
 Rails.logger.info 'Weightlifting, Sprint and Chess categories have been created.'
+
+Category.all.each do |category|
+  Skill.all.each do |skill|
+    CategorySkill.create(category_id: category.id, skill_id: skill.id, weight: 10)
+  end
+end
+Rails.logger.info 'CategorySkill created'
 
 
 @i = 1
