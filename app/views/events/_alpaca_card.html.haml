@@ -3,5 +3,7 @@
     = link_to alpaca_path(alpaca) do
       %img.card-img-top{:alt => "#{alpaca.name}", :src => "#{alpaca.picture_url}"}/
       .card-body
-        %h5.card-title="#{alpaca.name}"
-        %p.card-text="Skills: #{}"
+        %h4.card-title="#{alpaca.name}"
+        %h5.card-text="Skills:"
+        - get_alpaca_skills(alpaca).each do |skill_name, value|
+          %p="#{skill_name}: #{value}"
