@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_144326) do
+ActiveRecord::Schema.define(version: 2019_02_21_092802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_144326) do
     t.boolean "gender", null: false
     t.boolean "for_sale"
     t.boolean "busy", default: false, null: false
-    t.integer "price"
+    t.integer "price", default: 0
   end
 
   create_table "categories", force: :cascade do |t|
