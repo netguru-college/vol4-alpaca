@@ -18,5 +18,14 @@ module EventsHelper
     alpaca.alpaca_events.find_by(event_id: event.id)&.points
   end
 
-  def get_alpaca_skills(alpaca); end
+  def get_alpaca_skills(alpaca)
+    skills = {}
+
+    alpaca.alpaca_skills.each do |alpaca_skill|
+      skill = Skill.find(alpaca_skill.skill_id)
+      skills[skill.name] = alpaca_skill.level
+    end
+
+    skills
+  end
 end
