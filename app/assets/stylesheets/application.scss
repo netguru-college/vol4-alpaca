@@ -1,7 +1,8 @@
-@import "variables";
-@import "bootswatch";
-@import "navbar";
-@import "footer";
+@import 'variables';
+@import 'bootswatch';
+@import 'navbar';
+@import 'footer';
+@import 'carousel';
 @import "events";
 
 .container h1 {
@@ -46,8 +47,9 @@
 
 .jumbotron {
   margin-top: 20px;
-  background-image: url('welcome.jpg');
+  background-image: url('https://s3.us-east-2.amazonaws.com/alpaca-app/welcome.jpg');
   background-size: cover;
+
   p {
     color: $black;
     font-weight: bold;
