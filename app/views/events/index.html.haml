@@ -1,11 +1,14 @@
-.col-2.col-centered
+%br
+%br
+.col-3.col-centered
   .add_button
-    = link_to 'Add event', new_event_path, method: :get, class: 'btn btn-info btn-lg'
+    = link_to 'Add event', new_event_path, method: :get, class: 'btn btn-info btn-lg btn-block'
 
-%h1 My events
-= render 'listing', events: current_user.events
-%h1 Available events
-- unless @events.empty?
-  = render 'listing', events: @events
-- else
-  %h3 No events?! How it's possible?! You'd better add something!
+.events-container
+  %h1 My events
+  = render 'listing', events: current_user.events
+  %h1 Available events
+  - unless @events.empty?
+    = render 'listing', events: @events
+  - else
+    %h3 No events?! How it's possible?! You'd better add something!
