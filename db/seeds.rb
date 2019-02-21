@@ -9,7 +9,7 @@ Rails.logger.info 'Seeds crating started'
   user = User.new(
     email: "user#{@i}@mail.com",
     password: "123qwe",
-    name: Faker::Internet.username(5..8)
+    name: Faker::Internet.username(5..8),
     hay: 200
   )
   user.save

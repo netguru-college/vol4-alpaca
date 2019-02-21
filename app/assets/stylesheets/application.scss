@@ -1,7 +1,8 @@
-@import "variables";
-@import "bootswatch";
-@import "navbar";
-@import "footer";
+@import 'variables';
+@import 'bootswatch';
+@import 'navbar';
+@import 'footer';
+@import 'carousel';
 @import "events";
 
 .container h1 {
@@ -48,6 +49,7 @@
   margin-top: 20px;
   background-image: url('welcome.jpg');
   background-size: cover;
+
   p {
     color: $black;
     font-weight: bold;
