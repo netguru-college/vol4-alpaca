@@ -9,11 +9,16 @@
 
 .add-button {
   padding-top: 100px;
+  margin-top: 100px;
 }
 
 .event-card {
   min-width: 500px;
   min-height: 600px;
+}
+
+.events-container {
+  padding-bottom: 100px;
 }
 
 .versus {
@@ -28,11 +33,11 @@
 }
 
 .winner-display {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
 .points-display {
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: center;
 }
