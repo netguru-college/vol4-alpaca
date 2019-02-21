@@ -15,6 +15,11 @@
             = link_to "Events", root_path, class: 'nav-link'
           %li.nav-item
             = link_to "Market", market_place_path, class: 'nav-link'
+          %li.nav-item
+            = link_to "#{current_user.name || @current_user&.name}'s fortune: #{current_user.hay}", user_path(current_user), class: 'nav-link'
+          %li.nav-item
+            = image_tag("hay.png", :alt => "hay", size: "20x20")
+
           .dropdown.show
             %a#dropdown-menu-link.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               = current_user.email
@@ -26,5 +31,3 @@
             = link_to t('navbar.signin'), new_user_session_path, class: 'nav-link', class: 'btn btn-outline-light'
           %li.nav-item.btn_margin
             = link_to t('navbar.signup'), new_user_registration_path, class: 'nav-link', class: 'btn btn-outline-light'
-
-

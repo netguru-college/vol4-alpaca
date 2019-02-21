@@ -1,0 +1,6 @@
+= simple_form_for @event do |f|
+  = f.input :name
+  = f.input :description
+  = f.association :category
+  = f.input :alpacas, collection: @alpacas
+  = f.submit "Create event", class: "btn btn-primary col-centered"

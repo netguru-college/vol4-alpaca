@@ -1,3 +1,38 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.add-button {
+  padding-top: 100px;
+}
+
+.event-card {
+  min-width: 500px;
+  min-height: 600px;
+}
+
+.versus {
+  font-size: 60px;
+  position: fixed;
+  top: 50%;
+  left: 48%;
+}
+
+.blank-card {
+  border: 0px;
+}
+
+.winner-display {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.points-display {
+  margin-top: 10px;
+  text-align: center;
+}

@@ -3,6 +3,7 @@
 @import 'navbar';
 @import 'footer';
 @import 'carousel';
+@import "events";
 
 .container h1 {
   margin-top: 20px;
@@ -125,4 +126,16 @@
   position: relative;
   top: -11px;
   z-index: 1;
+}
+
+.simple_form {
+    float: none;
+    text-align : center;
+}
+.simple_form .input-box {
+    margin-bottom: 10px;
+}
+.simple_form input {
+    margin-bottom: 10px;
+    display: inline-block;
 }
