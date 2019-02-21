@@ -37,8 +37,9 @@ class EventsController < ApplicationController
 
     if @event.alpacas << @alpaca
       @points = CalculateEventPointsAndAssignToAlpacas.new(@event).call
-      @winner = Alpaca.find(@points.max_by{ |_alpaca_id, points| points })
-      @winner.alpaca_skills.find_by(skill_id: skill.id).update_attributes(level: alpaca_skills.find_by(skill_id: skill.id) + 5 )
+      @winner = Alpaca.find(@points.max_by{ |_alpaca_id, points| points }.first)
+      @skillup = AlpacaSkill.find_by(alpaca_id: @winner.id, skill_id: @event.category.category_skills.first.skill_id)
+      @skillup.update_attributes(level: @skillup.level + 5)
       @event.alpaca_events.find_by(event_id: @event.id, alpaca_id: @points.max_by{ |_alpaca_id, points| points })
             .update(winner: true)
 

@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       ownership.alpaca_id = alpaca.id
       ownership.user_id = current_user.id
       ownership.save
-      current_user.update.hay = 200
+      current_user.update_attributes(hay: 200)
 
     end
 
