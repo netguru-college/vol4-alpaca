@@ -1,8 +1,8 @@
 class InitializeNewAlpacaSkills
   SKILLS = [
     Skill.find_by(name: 'Strength'),
-    Skill.find_by(name: 'Speed'   ),
-    Skill.find_by(name: 'Wisdom'  ),
+    Skill.find_by(name: 'Speed'),
+    Skill.find_by(name: 'Wisdom')
   ]
 
   def initialize(alpaca)
@@ -11,7 +11,7 @@ class InitializeNewAlpacaSkills
 
   def call
     SKILLS.each do |skill|
-      AlpacaSkill.new(alpaca_id: @alpaca.id, skill_id: skill.id, level: 1).save
+      @alpaca.alpaca_skills.create(skill_id: skill.id, level: 1)
     end
   end
 end
