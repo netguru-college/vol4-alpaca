@@ -11,17 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    if current_user
-      alpaca = CreateRandomAlpaca.new.call
-      alpaca.save
-      ownership = Ownership.new
-      ownership.alpaca_id = alpaca.id
-      ownership.user_id = current_user.id
-      ownership.save
-      current_user.hay = 200
-      current_user.save
-    end
-
+    InitializeNewUser.new(current_user).call if current_user
   end
 
   def edit
@@ -38,7 +28,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def cancel
     super
-
   end
 
   def configure_sign_up_params

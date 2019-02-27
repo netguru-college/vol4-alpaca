@@ -2,12 +2,18 @@
 
 require 'faker'
 
+def assign_random_skills(alpaca)
+  Skill.all.each do |skill|
+    alpaca.alpaca_skills.create(skill_id: skill.id, level: (1..100).to_a.sample)
+  end
+end
+
 Rails.logger = Logger.new(STDOUT)
 Rails.logger.info 'Seeds crating started'
 
 skills = {
   'Strength': 'Describes physical strength of your alpaca',
-  'Wisdom':   'Describes, intelligence and mentall skills of your alpaca',
+  'Wisdom':   'Describes intelligence and mentall skills of your alpaca',
   'Speed':    'Describes quickness and agility of your alpaca'
 }
 
@@ -15,8 +21,6 @@ skills.each do |name, description|
   Skill.create(name: name.to_s, description: description)
 end
 Rails.logger.info 'Strength, Wisdom and Speed skills have been created.'
-
-
 
 categories = [
   {
@@ -48,7 +52,6 @@ Category.all.each do |category|
 end
 Rails.logger.info 'CategorySkill created'
 
-
 @i = 1
 5.times do
   user = User.new(
@@ -60,17 +63,13 @@ Rails.logger.info 'CategorySkill created'
   user.save
   alpaca = CreateRandomAlpaca.new.call
   alpaca.save
+  assign_random_skills(alpaca)
   ownership = Ownership.new
   ownership.alpaca_id = alpaca.id
   ownership.user_id = user.id
   ownership.save
-
-  Skill.all.each do |skill|
-    alpaca.alpaca_skills.create(skill_id: skill.id, level: (1..100).to_a.sample)
-  end
   @i += 1
 end
-
 Rails.logger.info '5 users created, where emails are user1@mail.com to user5@mail.com, password: 123qwe.' \
                   ' Every user has one Alpaca and randomly distributed skill levels.'
 
@@ -79,6 +78,6 @@ Rails.logger.info '5 users created, where emails are user1@mail.com to user5@mai
   alpaca.for_sale = true
   alpaca.price = (1..50).to_a.sample
   alpaca.save
+  assign_random_skills(alpaca)
 end
-
 Rails.logger.info '20 Alpacas put on Market.'
