@@ -14,12 +14,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user
       alpaca = CreateRandomAlpaca.new.call
       alpaca.save
+      InitializeNewAlpacaSkills.new(Alpaca.find(alpaca.id)).call
       ownership = Ownership.new
       ownership.alpaca_id = alpaca.id
       ownership.user_id = current_user.id
       ownership.save
-      current_user.hay = 200
-      current_user.save
+      current_user.update_attributes(hay: 200)
+
     end
 
   end
